@@ -203,27 +203,29 @@ Changes made to the original repo:
 
 Changes that need to be made:
 * Download the weight file for yolov3-tiny:
-``
-        cd ~/catkin_ws/src/darknet_ros/darknet_ros/yolo_network_config/weights/
-        wget http://pjreddie.com/media/files/yolov3-tiny.weights
-``
+
+```sh
+            cd ~/catkin_ws/src/darknet_ros/darknet_ros/yolo_network_config/weights/
+            wget http://pjreddie.com/media/files/yolov3-tiny.weights
+```
+
 * To run yolov3-tiny:
     * Change network_param_file inside /darknet_ros/launch/darknet_ros.launch to 
     
-``
-        <arg name="network_param_file"         default="$(find darknet_ros)/config/yolov3-tiny.yaml"/>
-``
+```sh
+            <arg name="network_param_file"         default="$(find darknet_ros)/config/yolov3-tiny.yaml"/>
+```
 
 * To run yolov3:
     * Change network_param_file inside /darknet_ros/launch/darknet_ros.launch to 
     
-``  
-        <arg name="network_param_file"         default="$(find darknet_ros)/config/yolov3.yaml"/> 
-``
+```sh 
+            <arg name="network_param_file"         default="$(find darknet_ros)/config/yolov3.yaml"/> 
+```
 
 * Run the node
 
-``
-    roslaunch darknet_ros darknet_ros.launch
-``
+```sh 
+        roslaunch darknet_ros darknet_ros.launch
+```
 
