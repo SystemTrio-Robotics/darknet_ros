@@ -193,3 +193,27 @@ You can change the parameters that are related to the detection by adding a new 
 * **`yolo_model/detection_classes/names`** (array of strings)
 
     Detection names of the network used by the cfg and weights file inside `darknet_ros/yolo_network_config/`.
+
+### Systemtrio
+
+Changes made to the original repo:
+* Add `yolov3-tiny.cfg` to `/darknet_ros/yolo_network_config/cfg`
+* Add `yolov3-tiny.yaml` to `/darknet_ros/config`
+* Change the camera topic subscriber inside `/darknet_ros/config/ros.yaml` to `topic: /drone0/rgb_camera/image_raw`
+
+Changes that need to be made:
+* Download the weight file for yolov3-tiny:
+        cd ~/catkin_ws/src/darknet_ros/darknet_ros/yolo_network_config/weights/
+        wget http://pjreddie.com/media/files/yolov3-tiny.weights
+
+* To run yolov3-tiny
+    * Change network_param_file inside /darknet_ros/launch/darknet_ros.launch to 
+        <arg name="network_param_file"         default="$(find darknet_ros)/config/yolov3-tiny.yaml"/>
+
+* To run yolov3
+    * Change network_param_file inside /darknet_ros/launch/darknet_ros.launch to 
+        <arg name="network_param_file"         default="$(find darknet_ros)/config/yolov3.yaml"/> 
+
+* Run the node
+    roslaunch darknet_ros darknet_ros.launch
+
