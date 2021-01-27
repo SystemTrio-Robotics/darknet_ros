@@ -84,6 +84,7 @@ catkin_package(
 include_directories(
   ${DARKNET_PATH}/src
   ${DARKNET_PATH}/include
+  /usr/local/cuda-10.2/include
   include
   ${Boost_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
@@ -140,6 +141,7 @@ if (CUDA_FOUND)
 
   link_directories(
     ${CUDA_TOOLKIT_ROOT_DIR}/lib64
+    ${CUDA_TOOLKIT_ROOT_DIR}/../cuda-10.2/lib64
   )
 
   cuda_add_library(${PROJECT_NAME}_lib
