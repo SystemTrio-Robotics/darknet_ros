@@ -1,1 +1,3 @@
-*.weights
+yolov2-tiny.weights
+yolov2.weights
+yolov3.weights
