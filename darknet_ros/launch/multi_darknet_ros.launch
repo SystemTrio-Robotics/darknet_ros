@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <launch>
+  <arg name="respawn" default="false"/>
+  
   <arg name="ns" default="drone1" />
   <!-- Console launch prefix -->
   <arg name="launch_prefix" default=""/>
@@ -19,7 +21,7 @@
   <rosparam command="load" ns="darknet_ros" file="$(arg network_param_file)"/>
 
   <!-- Start darknet and ros wrapper -->
-  <node pkg="darknet_ros" type="darknet_ros" name="darknet_ros" output="screen" launch-prefix="$(arg launch_prefix)">
+  <node pkg="darknet_ros" type="darknet_ros" name="darknet_ros" launch-prefix="$(arg launch_prefix)" required="$(eval not respawn)" clear_params="true" respawn="$(arg respawn)" output="screen">
     <param name="weights_path"          value="$(arg yolo_weights_path)" />
     <param name="config_path"           value="$(arg yolo_config_path)" />
     <remap from="/rgb_camera/image_raw"      to="/$(arg ns)/rgb_camera/image_raw" /> <!--Remapping from the topic defined in ros.yaml to a drone specific topic-->
