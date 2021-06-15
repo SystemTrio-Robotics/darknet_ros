@@ -3,14 +3,12 @@ yolo_model:
   config_file:
     name: yolov3-tiny-obj.cfg
   weight_file:
-    name: yolov3-tiny-obj_last.weights
+    name: yolov3-tiny_obj_last.weights
   threshold:
     value: 0.6
   detection_classes:
     names:
       - person
       - car
-      - bus
-      - tree
-      - building
+      - boat
 
